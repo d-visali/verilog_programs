@@ -1,9 +1,6 @@
-module full_subtractor(
-    input a,
-    input b,
-    input bin,
-    output diff,
-    output borrow
+module full_subtractor_df(
+    input a, b, bin,
+    output diff, borrow
 );
 
 assign diff = a ^ b ^ bin;
