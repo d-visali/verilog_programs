@@ -12,8 +12,11 @@ full_subtractor uut(
 );
 
 initial begin
-    $display("a b bin | diff borrow");
+    $dumpfile("full_subtractor.vcd");
+    $dumpvars(0, tb_full_subtractor);
+end
 
+initial begin
     a=0; b=0; bin=0; #10;
     a=0; b=0; bin=1; #10;
     a=0; b=1; bin=0; #10;
@@ -27,7 +30,7 @@ initial begin
 end
 
 initial begin
-    $monitor("%b %b  %b  |  %b     %b",
+    $monitor("a=%b b=%b bin=%b diff=%b borrow=%b",
               a,b,bin,diff,borrow);
 end
 

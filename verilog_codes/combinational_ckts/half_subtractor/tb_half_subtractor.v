@@ -11,8 +11,11 @@ half_subtractor uut(
 );
 
 initial begin
-    $display("a b | diff borrow");
+    $dumpfile("half_subtractor.vcd");
+    $dumpvars(0, tb_half_subtractor);
+end
 
+initial begin
     a=0; b=0; #10;
     a=0; b=1; #10;
     a=1; b=0; #10;
@@ -22,7 +25,7 @@ initial begin
 end
 
 initial begin
-    $monitor("%b %b |  %b     %b",
+    $monitor("a=%b b=%b diff=%b borrow=%b",
               a,b,diff,borrow);
 end
 

@@ -11,8 +11,11 @@ half_adder uut(
 );
 
 initial begin
-    $display("a b | sum carry");
+    $dumpfile("half_adder.vcd");
+    $dumpvars(0, tb_half_adder);
+end
 
+initial begin
     a=0; b=0; #10;
     a=0; b=1; #10;
     a=1; b=0; #10;
@@ -22,7 +25,8 @@ initial begin
 end
 
 initial begin
-    $monitor("%b %b |  %b    %b", a, b, sum, carry);
+    $monitor("a=%b b=%b sum=%b carry=%b",
+              a,b,sum,carry);
 end
 
 endmodule

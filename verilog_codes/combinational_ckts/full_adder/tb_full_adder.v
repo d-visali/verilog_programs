@@ -11,6 +11,12 @@ full_adder uut(
     .carry(carry)
 );
 
+// Generate VCD file for GTKWave
+initial begin
+    $dumpfile("full_adder.vcd");
+    $dumpvars(0, tb_full_adder);
+end
+
 initial begin
     $display("a b cin | sum carry");
 
@@ -27,8 +33,8 @@ initial begin
 end
 
 initial begin
-    $monitor("%b %b  %b  |  %b    %b",
-              a,b,cin,sum,carry);
+    $monitor("%b %b %b | %b %b",
+             a,b,cin,sum,carry);
 end
 
 endmodule
